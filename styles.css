@@ -182,3 +182,30 @@ iframe {
     width: 109%; /* Ajustez la taille de l'icône au besoin */
     height: auto;
 }
+
+#nosound-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 64px; /* Largeur du bouton carré */
+    height: 64px; /* Hauteur du bouton carré */
+    font-size: 2em;
+    text-align: center;
+    color: #FF6347;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    border: 2px solid #FF6347;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #ddd, #fff);
+}
+
+#nosound-button img {
+    width: 109%; /* Ajustez la taille de l'icône au besoin */
+    height: auto;
+}

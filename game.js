@@ -163,6 +163,8 @@ function mapToucheToNote(key) {
 
 let oscillator = new Array(9);
 let context = null;
+let audioBufferSource = null;
+let isMuted = false;
 const whyDoYouCheat = ['q', 's', 's', 'd', 's', 'q', 's', 's',
     's', 's', 'e', 'd', 'c', 'd', 'e', 's', 'e', 'e',
     'q', 's', 's', 'd', 's', 'q', 's', 's', 's', 's',
@@ -188,6 +190,10 @@ document.getElementById('danceButton').addEventListener('click', function () {
 
 document.getElementById('reset-button').addEventListener('click', function () {
     resetGame();
+});
+
+document.getElementById('nosound-button').addEventListener('click', function () {
+    toggleSound();
 });
 
 
@@ -231,6 +237,8 @@ function coefficientDice(reponse, proposition) {
 
 
 function displayScore(scoreFinal) {
+    const audioElement = document.getElementById('numberAudio');
+    audioElement.play(); 
     const elementScore = document.getElementById('score'); // Assurez-vous d'avoir un élément avec l'ID 'score' dans votre HTML
     const dureeAnimation = 3000; // Durée totale de l'animation en millisecondes (3 secondes dans cet exemple)
     const intervalleChangement = 50; // Intervalle de changement en millisecondes (50 ms dans cet exemple)
@@ -245,6 +253,7 @@ function displayScore(scoreFinal) {
     setTimeout(function () {
         clearTimeout(timer);
         elementScore.textContent = Math.round(scoreFinal);
+        audioElement.pause(); 
     }, dureeAnimation);
 
     changerNombreAleatoire();
@@ -266,23 +275,22 @@ function resetGame() {
 }
 
 function startBackgroundSong() {
-    // Créez un objet AudioContext
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const audioElement = document.getElementById('backgroundAudio');
+    audioElement.play(); 
+}
 
-    // Chargez le fichier audio
-    const audioSource = 'loopDrums.wav';
-
-    const audioBufferSource = audioContext.createBufferSource();
-
-    fetch(audioSource)
-        .then(response => response.arrayBuffer())
-        .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-        .then(audioBuffer => {
-            audioBufferSource.buffer = audioBuffer;
-            audioBufferSource.loop = true; // Activez la boucle
-            audioBufferSource.connect(audioContext.destination);
-            audioBufferSource.start();
-        })
-        .catch(error => console.error('Erreur lors du chargement du fichier audio:', error));
+function toggleSound(){
+    const toggleImage = document.getElementById('iconSound');
+    const audioElement = document.getElementById('backgroundAudio');
+    const audioNumberElement = document.getElementById('numberAudio');
+    audioNumberElement.pause(); // Reprend la lecture audio
+    if (isMuted) {
+        audioElement.play(); // 
+        toggleImage.src = 'icons8-son-haut-parleur-64.png'; // Change la source de l'image
+    } else {
+        audioElement.pause(); // 
+        toggleImage.src = 'icons8-muet-64.png'; // Change la source de l'image
+    }
+    isMuted = !isMuted; // Inverse l'état isPlaying
 }
 

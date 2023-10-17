@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -43,16 +44,18 @@
     <div class="center">
         <div class="score-text" id="score-text">Score : <span id="score">0</span></div>
     </div>
-    <div class="center">
-        <button id="reset-button">
-            <img src="icons8-rejouer-64.png" alt="Reset Icon">
-        </button>
-    </div>
-    
+    <button id="reset-button">
+        <img src="icons8-rejouer-64.png" alt="Reset Icon">
+    </button>
+    <button id="nosound-button">
+        <img id="iconSound" src="icons8-son-haut-parleur-64.png" alt="No sound Icon">
+    </button>
+
 
 
     <iframe width="500" height="500" src="https://rive.app/community/612-1196-fire/embed" allowfullscreen></iframe>
-
+    <audio id="backgroundAudio" src="loopDrums.wav" loop></audio>
+    <audio id="numberAudio" src="loopNumber.wav" loop></audio>
     <div class="container arriere-plan">
     </div>
     <script src="game.js"></script>
