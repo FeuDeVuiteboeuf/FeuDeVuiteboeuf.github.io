@@ -172,6 +172,7 @@ const whyDoYouCheat = ['q', 's', 's', 'd', 's', 'q', 's', 's',
 let urHistory = [];
 let gameStarted = false;
 let finalScore = 0;
+const volumeBackground = 0.4;
 
 document.getElementById('danceButton').addEventListener('click', function () {
     if (gameStarted) {
@@ -276,6 +277,7 @@ function resetGame() {
 
 function startBackgroundSong() {
     const audioElement = document.getElementById('backgroundAudio');
+    audioElement.volume = volumeBackground;
     audioElement.play(); 
 }
 
@@ -285,6 +287,7 @@ function toggleSound(){
     const audioNumberElement = document.getElementById('numberAudio');
     audioNumberElement.pause(); // Reprend la lecture audio
     if (isMuted) {
+        audioElement.volume = volumeBackground;
         audioElement.play(); // 
         toggleImage.src = 'icons8-son-haut-parleur-64.png'; // Change la source de l'image
     } else {
