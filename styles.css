@@ -148,8 +148,8 @@ button:hover {
 
 iframe {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 50vw;
+    bottom: 0;
     /* Si vous souhaitez contrôler la position verticale */
     width: 300px;
     height: 300px;
@@ -185,7 +185,7 @@ iframe {
 
 #nosound-button {
     position: fixed;
-    top: 10px;
+    bottom: 10px;
     left: 10px;
     width: 64px; /* Largeur du bouton carré */
     height: 64px; /* Hauteur du bouton carré */
