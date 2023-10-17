@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gabarito', sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.fires {
+    overflow: hidden;
+    padding: 60px 0;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+    opacity: 0.4;
+}
+
+.fires:before,
+.fires:after {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    content: "";
+    z-index: 2;
+}
+
+.fires:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.fires:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+
+
+
+.slider {
+    display: inline-block;
+    animation: 30s slide infinite linear;
+}
+
+.slider img {
+    height: 50px;
+    margin: 0 40px;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.arriere-plan {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Met la div en arrière-plan */
+}
+
+
+.titre-route {
+    font-size: 4em;
+    text-align: center;
+    color: #FF6347;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 20px auto;
+    /* Pour centrer le titre horizontalement */
+    padding: 10px 20px;
+    /* Ajuster l'espacement à l'intérieur du cadre */
+    border: 2px solid #FF6347;
+    /* Ajouter un cadre */
+    border-radius: 10px;
+    display: inline-block;
+    /* Permet de réduire la largeur au texte */
+    background-image: linear-gradient(to right, #ddd, #fff);
+    /* Dégradé du rouge au vert */
+}
+
+.conteneur-titre {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+button {
+    align-items: center;
+    font-size: 1em;
+    text-align: center;
+    color: #FF6347;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 20px auto; /* Auto sur les côtés va centrer horizontalement */
+    padding: 5px 10px;
+    border: 2px solid #FF6347;
+    border-radius: 5px;
+    display: flex;
+    background-image: linear-gradient(to right, #ddd, #fff);
+    cursor: pointer;
+}
+
+button:hover {
+    background-image: linear-gradient(to right, #FF6347, #FF6347);
+    color: #fff;
+}

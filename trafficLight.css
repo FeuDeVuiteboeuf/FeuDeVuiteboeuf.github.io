@@ -1,0 +1,39 @@
+.game-container {
+    display: none;
+    gap: 20px;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+}
+
+.fire {
+    width: 150px;
+    height: 250px;
+    background-color: #333;
+    border-radius: 10px;
+    position: relative;
+}
+
+.light {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Ajout de l'ombre lumineuse */
+}
+
+.red { background-color: #FF5733; }
+.orange { background-color: #FF9F33; }
+.green { background-color: #33FF5B; }
+
+.topLight{
+    top: 20%; 
+}
+.centerLight{
+    top: 50%; 
+}
+.bottomLight{
+    top: 80%; 
+}

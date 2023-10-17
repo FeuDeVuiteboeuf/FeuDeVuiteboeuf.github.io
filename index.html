@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Animation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="trafficLight.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="conteneur-titre">
+        <div class="titre-route">
+            LE FEU DE VUITEBOEUF
+        </div>
+    </div>
+
+    <div class="game-container" id="traffic">
+        <div class="fire" id="fire1">
+            <div class="light topLight" id="l1"></div>
+            <div class="light centerLight" id="l2"></div>
+            <div class="light bottomLight" id="l3"></div>
+        </div>
+        <div class="fire" id="fire2">
+            <div class="light topLight" id="l4"></div>
+            <div class="light centerLight" id="l5"></div>
+            <div class="light bottomLight" id="l6"></div>
+        </div>
+        <div class="fire" id="fire3">
+            <div class="light topLight" id="l7"></div>
+            <div class="light centerLight" id="l8"></div>
+            <div class="light bottomLight" id="l9"></div>
+        </div>
+    </div>
+
+    <button id="danceButton">Make me dance</button>
+
+
+    <div class="container arriere-plan">
+    </div>
+    <script src="game.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
