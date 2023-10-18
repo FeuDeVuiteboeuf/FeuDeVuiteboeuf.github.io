@@ -6,6 +6,8 @@
 }
 
 body {
+    width: 100%; /* Occupe toute la largeur disponible */
+    height: 100vh; /* Occupe toute la hauteur de la fenêtre */
     background-color: #f2f2f2;
 }
 
@@ -78,7 +80,7 @@ body {
 
 
 .titre-route {
-    font-size: 4em;
+    font-size: 3em;
     text-align: center;
     color: #FF6347;
     text-transform: uppercase;
@@ -89,7 +91,7 @@ body {
     /* Ajuster l'espacement à l'intérieur du cadre */
     border: 2px solid #FF6347;
     /* Ajouter un cadre */
-    border-radius: 10px;
+    border-radius: 5px;
     display: inline-block;
     /* Permet de réduire la largeur au texte */
     background-image: linear-gradient(to right, #ddd, #fff);
@@ -99,7 +101,6 @@ body {
 .conteneur-titre {
     display: flex;
     align-items: center;
-    height: 100%;
 }
 
 
@@ -120,21 +121,22 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button-text:hover {
     background-image: linear-gradient(to right, #FF6347, #FF6347);
     color: #fff;
 }
 
+
 .score-text {
-    font-size: 2em;
+    font-size: 1em;
     text-align: center;
     color: #FF6347;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 20px auto;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border: 2px solid #FF6347;
-    border-radius: 10px;
+    border-radius: 5px;
     display: inline-block;
     background-image: linear-gradient(to right, #ddd, #fff);
 }
@@ -156,56 +158,132 @@ iframe {
     border: none;
 }
 
-#reset-button {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 64px; /* Largeur du bouton carré */
-    height: 64px; /* Hauteur du bouton carré */
+.square-button{   
+    width: 64px;
+    /* Largeur du bouton carré */
+    height: 64px;
+    /* Hauteur du bouton carré */
     font-size: 2em;
     text-align: center;
-    color: #FF6347;
+    color: black;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    background: none;
-    border: none;
     cursor: pointer;
-    display: none;
-    margin: 20px 0;
+    margin: 12px 0;
     padding: 10px 20px;
-    border: 2px solid #FF6347;
+    border: 2px solid black;
     border-radius: 10px;
     background-image: linear-gradient(to right, #ddd, #fff);
 }
+.square-button:hover {
+    background: #FF6347; /* Nouvelle bordure au survol (rouge) */
+}
+.square-button img {
+    width: 100%;
+    /* Ajustez la taille de l'icône au besoin */
+    height: auto;
+}
+#ouvrir-modal {
+    display: block;
+    margin-left: 12px;
+}
+
+#reset-button {
+    display: none;
+    margin-left: 12px;
+}
 
 #reset-button img {
-    width: 109%; /* Ajustez la taille de l'icône au besoin */
+    width: 100%;
+    /* Ajustez la taille de l'icône au besoin */
     height: auto;
 }
 
 #nosound-button {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    width: 64px; /* Largeur du bouton carré */
-    height: 64px; /* Hauteur du bouton carré */
-    font-size: 2em;
-    text-align: center;
-    color: #FF6347;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    background: none;
-    border: none;
-    cursor: pointer;
     display: inline-block;
-    margin: 20px 0;
-    padding: 10px 20px;
-    border: 2px solid #FF6347;
-    border-radius: 10px;
-    background-image: linear-gradient(to right, #ddd, #fff);
 }
 
 #nosound-button img {
-    width: 109%; /* Ajustez la taille de l'icône au besoin */
+    width: 109%;
+    /* Ajustez la taille de l'icône au besoin */
     height: auto;
 }
+
+.bottomLeft{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+
+.v8 {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    height: 25vh;
+}
+
+/* Style de la modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  /* Contenu de la modal */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  /* Liste */
+.modal-content ul {
+    margin-top: 12px;
+    list-style-position: inside;
+    display: inline-block;
+    padding-left: 0; /* Pour supprimer l'espacement par défaut à gauche de la liste */
+  }
+  
+  /* Éléments de liste */
+  .modal-content li {
+    list-style: disc;
+    margin-bottom: 10px; /* Ajout d'un espace entre les éléments de liste */
+  }
+  
+  /* Bouton pour fermer la modal */
+  .close {
+    color: #aaa;
+    position: relative;
+    top: -8px;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+@media only screen and (max-width: 600px) {
+    .titre-route {
+        font-size: 1.5em;
+    }
+    button:hover {
+        background-image: none;
+        color: #FF6347;
+    }
+    
+  }

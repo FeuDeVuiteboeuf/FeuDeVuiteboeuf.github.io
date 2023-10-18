@@ -183,7 +183,7 @@ document.getElementById('danceButton').addEventListener('click', function () {
     else {
         context = new (window.AudioContext || window.webkitAudioContext)();
         document.getElementById('traffic').style.display = 'flex';
-        document.getElementById('danceButton').textContent = 'Submit my song to Vuiteboeuf\'s Fire';
+        document.getElementById('danceButton').innerText = 'Show my score';
         gameStarted = true;
         startBackgroundSong();
     }
@@ -289,11 +289,12 @@ function toggleSound(){
     if (isMuted) {
         audioElement.volume = volumeBackground;
         audioElement.play(); // 
-        toggleImage.src = 'icons8-son-haut-parleur-64.png'; // Change la source de l'image
+        toggleImage.src = 'sound-volume-2-svgrepo-com.svg'; // Change la source de l'image
     } else {
         audioElement.pause(); // 
-        toggleImage.src = 'icons8-muet-64.png'; // Change la source de l'image
+        toggleImage.src = 'sound-off-svgrepo-com.svg'; // Change la source de l'image
     }
     isMuted = !isMuted; // Inverse l'état isPlaying
 }
+
 

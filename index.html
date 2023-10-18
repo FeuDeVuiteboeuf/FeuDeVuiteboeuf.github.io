@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Animation</title>
+    <title>V8's Symphony</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="trafficLight.css">
@@ -39,26 +39,43 @@
         </div>
     </div>
 
-    <button id="danceButton">Make me dance</button>
+    <button class="button-text" id="danceButton">Play a song for V8</button>
 
     <div class="center">
         <div class="score-text" id="score-text">Score : <span id="score">0</span></div>
     </div>
-    <button id="reset-button">
-        <img src="icons8-rejouer-64.png" alt="Reset Icon">
-    </button>
-    <button id="nosound-button">
-        <img id="iconSound" src="icons8-son-haut-parleur-64.png" alt="No sound Icon">
-    </button>
+    <div class="bottomLeft">
+        <button id="ouvrirModal" class="square-button">
+            <img src="help-circle-svgrepo-com.svg"/>
+        </button>
+        <button id="nosound-button" class="square-button">
+            <img id="iconSound" src="sound-volume-2-svgrepo-com.svg" alt="No sound Icon">
+        </button>
+        <button id="reset-button" class="square-button">
+            <img src="replay-svgrepo-com.svg" alt="Reset Icon">
+        </button>
+    </div>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Instructions pour jouer une musique</h2>
+          <p>Pour jouer une musique, utilisez les touches suivantes :</p>
+          <ul>
+            <li>1er feu : Q, A, Y</li>
+            <li>2ieme feu : W, S, X</li>
+            <li>3ieme feu : E, D, C</li>
+          </ul>
+        </div>
+      </div>
 
-
-
-    <iframe width="500" height="500" src="https://rive.app/community/612-1196-fire/embed" allowfullscreen></iframe>
+    <img src="V8_Leonardo_Rogner.png" class="v8"/>
     <audio id="backgroundAudio" src="loopDrums.wav" loop></audio>
     <audio id="numberAudio" src="loopNumber.wav" loop></audio>
     <div class="container arriere-plan">
     </div>
     <script src="game.js"></script>
+    <script src="events.js" type="text/javascript"></script>
     <script src="script.js"></script>
 </body>
 

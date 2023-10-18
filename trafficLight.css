@@ -37,3 +37,10 @@
 .bottomLight{
     top: 80%; 
 }
+
+@media only screen and (max-width: 600px) {
+    .game-container {
+        margin: 10%;
+    }
+    
+  }
