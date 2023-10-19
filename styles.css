@@ -220,6 +220,7 @@ iframe {
     bottom: 10px;
     right: 10px;
     height: 25vh;
+    transform: scaleX(-1);
 }
 
 /* Style de la modal */
@@ -286,6 +287,12 @@ iframe {
     margin-top: 24px;
 }
 
+#JohnnyBust{
+    height: 468px;
+    width: 400px;
+    transform: scaleX(-1);
+}
+
 @media only screen and (max-width: 600px) {
     .titre-route {
         font-size: 1.5em;
@@ -294,5 +301,11 @@ iframe {
         background-image: none;
         color: #FF6347;
     }
+    #JohnnyBust{
+        height: 118px;
+        width: 100px;
+        transform: scaleX(-1);
+    }
+    
     
   }

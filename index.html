@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.8.35"></script>
 </head>
 
 <body>
@@ -20,7 +21,6 @@
             LE FEU DE VUITEBOEUF
         </div>
     </div>
-
     <div class="game-container" id="traffic">
         <div class="fire" id="fire1">
             <div class="light topLight" id="l1"></div>
@@ -46,7 +46,7 @@
     </div>
     <div class="bottomLeft">
         <button id="ouvrirModal" class="square-button">
-            <img src="help-circle-svgrepo-com.svg"/>
+            <img src="help-circle-svgrepo-com.svg" />
         </button>
         <button id="nosound-button" class="square-button">
             <img id="iconSound" src="sound-volume-2-svgrepo-com.svg" alt="No sound Icon">
@@ -55,25 +55,26 @@
             <img src="replay-svgrepo-com.svg" alt="Reset Icon">
         </button>
     </div>
-    
+
     <div id="modal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Instructions pour jouer une musique</h2>
-          <p>Pour jouer une musique, utilisez les touches suivantes :</p>
-          <ul>
-            <li>1er feu : Q, A, Y</li>
-            <li>2ieme feu : W, S, X</li>
-            <li>3ieme feu : E, D, C</li>
-          </ul>
-          <div class="indice">
-              <p>Indice : ... Jouez hautbois, résonnez musettes...</p>
-          </div>
+            <span class="close">&times;</span>
+            <h2>Instructions for playing music</h2>
+            <p style="margin-top: 12px;">To play music, use the following keys:</p>
+            <ul>
+                <li>1st fire: Q, A, Y</li>
+                <li>2nd fire: W, S, X</li>
+                <li>3rd fire: E, D, C</li>
+            </ul>
+            <div class="indice">
+                <p>Indice : ... THIS GUY ...</p>
+                <img src="Assets/JohnnyBust.png" id="JohnnyBust" alt="Description de l'image">
+            </div>
         </div>
-      </div>
+    </div>
 
-    <img src="V8_Leonardo_Rogner.png" class="v8"/>
-    <audio id="backgroundAudio" src="loopDrums.wav" loop></audio>
+    <img src="V8_Leonardo_Rogner.png" class="v8" />
+    <audio id="backgroundAudio" src="s1.wav" loop></audio>
     <audio id="numberAudio" src="loopNumber.wav" loop></audio>
     <div class="container arriere-plan">
     </div>

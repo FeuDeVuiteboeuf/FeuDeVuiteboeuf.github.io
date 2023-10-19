@@ -4,7 +4,6 @@ document.addEventListener('keydown', function (event) {
 
     // Déterminez quelle lumière doit être modifiée en fonction de la touche pressée
     let lumiere = mapToucheToLumiere(event.key.toUpperCase());
-    urHistory.push(event.key.toLowerCase());
 
 
     // Ajoutez ou retirez la classe "red" en fonction de la touche pressée
@@ -64,6 +63,8 @@ document.addEventListener('keydown', function (event) {
 
 document.addEventListener('keyup', function (event) {
     const lumiere = mapToucheToLumiere(event.key.toUpperCase());
+    
+    urHistory.push(event.key.toLowerCase());
 
     if (lumiere !== 0) {
         const traffic = document.getElementById(`traffic`);
@@ -144,7 +145,7 @@ function mapToucheToLumiere(key) {
     return lumiere;
 }
 
-function mapToucheToNote(key) {
+function mapToucheToNote2(key) {
     let note = 0;
     switch (key) {
         case 1: note = 261.6; break;
@@ -161,14 +162,37 @@ function mapToucheToNote(key) {
     return note;
 }
 
+function mapToucheToNote(key) {
+    let note = 0;
+    switch (key) {
+        case 1: note = 293.66; break;
+        case 2: note = 311.1; break;
+        case 3: note = 329.63; break;
+        case 4: note = 370; break;
+        case 5: note = 392; break;
+        case 6: note = 440; break;
+        case 7: note = 493.9; break;
+        case 8: note = 523.2; break;
+        case 9: note = 587.3; break;
+        default: return; // Si la touche n'est pas reconnue, ne rien faire
+    }
+    return note;
+}
 let oscillator = new Array(9);
 let context = null;
 let audioBufferSource = null;
 let isMuted = false;
-const whyDoYouCheat = ['q', 's', 's', 'd', 's', 'q', 's', 's',
-    's', 's', 'e', 'd', 'c', 'd', 'e', 's', 'e', 'e',
+const whyDoYouCheat2 = ['q', 's', 's', 'd', 's', 'q', 's', 's',
+    's', 's', 'e', 'd', 'c', 'd', 'e', 'x', 'q', 'e',
     'q', 's', 's', 'd', 's', 'q', 's', 's', 's', 's',
     'e', 'd', 'c', 'd', 'e', 'x', 's'];
+
+const whyDoYouCheat = ['q', 'y', 's', 'y', 's', 'q', 'y', 's',
+ 'x', 's', 'w', 'y', 's', 'y', 's', 'y','s','y', 'c', 'd', 'e','x',
+ 'q', 'y', 's', 'y', 's', 'q', 'y', 's',
+ 'x', 's', 'w', 'y', 's', 'y', 's', 'y','s','y',
+ 'c', 'd', 'e', 'e', 'x'];
+
 let urHistory = [];
 let gameStarted = false;
 let finalScore = 0;
@@ -200,15 +224,12 @@ document.getElementById('nosound-button').addEventListener('click', function () 
 
 function startNote(lumiere) {
     let freq = mapToucheToNote(lumiere);
-    oscillator[lumiere] = context.createOscillator();
-    oscillator[lumiere].type = 'sine'; // Type de l'onde sonore (sinusoïdale)
-    oscillator[lumiere].connect(context.destination);
-    oscillator[lumiere].frequency.setValueAtTime(freq, context.currentTime); // Fréquence de la note (440 Hz = La 4)
-    oscillator[lumiere].start();
+    oscillator[lumiere] = new Tone.Synth().toDestination();
+    oscillator[lumiere].triggerAttack(freq);
 }
 
 function stopNote(lumiere) {
-    oscillator[lumiere].stop();
+    oscillator[lumiere].triggerRelease();
 }
 
 function submitSong() {
@@ -224,7 +245,7 @@ function coefficientDice(reponse, proposition) {
 
     let correspondances = 0;
 
-    proposition.slice(0, 35).forEach(lettre => {
+    proposition.slice(0, whyDoYouCheat.length).forEach(lettre => {
         if (compteurReponse.has(lettre) && compteurReponse.get(lettre) > 0) {
             correspondances++;
             compteurReponse.set(lettre, compteurReponse.get(lettre) - 1);
